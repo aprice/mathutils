@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Rogue.MathUtils</id>
+        <version>1.0.0</version>
+        <title>MathUtils</title>
+        <authors>Adrian Price</authors>
+        <licenseUrl>https://github.com/aprice/mathutils/raw/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/aprice/mathutils</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Basic handy math and geometry utilities, mainly extensions to the core number types.</description>
+        <summary />
+        <copyright>2014 Adrian Price</copyright>
+        <language>en-US</language>
+        <tags>math geometry</tags>
+    </metadata>
+    <files>
+        <file src="MathUtils\bin\Release\MathUtils.dll" target="lib\MathUtils.dll" />
+    </files>
+</package>
