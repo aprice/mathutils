@@ -2,14 +2,15 @@
 
 namespace MathUtils
 {
-	/**
-	 * <summary>
-	 * Rectangular area in integer coordinates
-	 * </summary>
-	 */
-	[Serializable()]
+	/// <summary>
+	/// Rectangular area in integer coordinates
+	/// </summary>
+	[Serializable]
 	public struct Bounds
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		public Vector Position;
 		public Vector Size;
 

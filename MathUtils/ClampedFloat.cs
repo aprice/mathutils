@@ -2,18 +2,14 @@
 
 namespace MathUtils
 {
-	/**
-	 * <summary>
-	 * An floating point value permanently clamped between a set of Min and Max values.
-	 * </summary>
-	 * <remarks>
-	 * All math operators overloaded to keep Value between Min and Max, inclusive. Useful for
-	 * things like Health, Mana, and any other floateger value that must stay within a specified
-	 * range.
-	 * </remarks>
-	 */
-	[Serializable()]
-	public struct ClampedFloat
+	/// <summary>
+	/// A floating point value permanently clamped between a set of Min and Max values.
+	/// </summary>
+	/// <remarks>
+	/// All math operators overloaded to keep Value between Min and Max, inclusive.
+	/// </remarks>
+	[Serializable]
+	public struct ClampedFloat : IComparable<ClampedFloat>
 	{
 		public float Min { get; private set; }
 		public float Value { get; private set; }
@@ -241,6 +237,11 @@ namespace MathUtils
 		public override int GetHashCode()
 		{
 			return ToString().GetHashCode();
+		}
+
+		public int CompareTo(ClampedFloat other)
+		{
+			return ((float)this).CeilToInt() - ((float)other).CeilToInt();
 		}
 	}
 }

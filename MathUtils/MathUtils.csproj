@@ -39,6 +39,7 @@
     <Compile Include="Bounds.cs" />
     <Compile Include="ClampedFloat.cs" />
     <Compile Include="ClampedInt.cs" />
+    <Compile Include="DoubleExtensions.cs" />
     <Compile Include="FloatBounds.cs" />
     <Compile Include="FloatExtensions.cs" />
     <Compile Include="FloatVector.cs" />

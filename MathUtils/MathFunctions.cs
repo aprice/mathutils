@@ -2,24 +2,50 @@
 
 namespace MathUtils
 {
+	/// <summary>
+	/// A set of common math functions not included in System.Math.
+	/// </summary>
 	public static class MathFunctions
 	{
-		public static Int32 Hypotenuse(Int32 x, Int32 y)
+		/// <summary>
+		/// Calculate the hypotenuse of a right triangle.
+		/// </summary>
+		/// <param name="x">First edge</param>
+		/// <param name="y">Second edge</param>
+		/// <returns>Third edge</returns>
+		public static float Hypotenuse(int x, int y)
 		{
-			return (Hypotenuse((double)x, (double)y)).RoundToInt();
+			return Hypotenuse((float)x, (float)y);
 		}
 
-		public static Single Hypotenuse(Single x, Single y)
+		/// <summary>
+		/// Calculate the hypotenuse of a right triangle.
+		/// </summary>
+		/// <param name="x">First edge</param>
+		/// <param name="y">Second edge</param>
+		/// <returns>Third edge</returns>
+		public static float Hypotenuse(float x, float y)
 		{
-			return (Single)Hypotenuse((double)x, (double)y);
+			return (float)Hypotenuse((double)x, (double)y);
 		}
 
-		public static Double Hypotenuse(Double x, Double y)
+		/// <summary>
+		/// Calculate the hypotenuse of a right triangle.
+		/// </summary>
+		/// <param name="x">First edge</param>
+		/// <param name="y">Second edge</param>
+		/// <returns>Third edge</returns>
+		public static double Hypotenuse(double x, double y)
 		{
 			return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
 		}
 
-		public static Single Average(params int[] values)
+		/// <summary>
+		/// Calculate the average of a set of values.
+		/// </summary>
+		/// <param name="values">Values to average</param>
+		/// <returns>Average of given values</returns>
+		public static float Average(params int[] values)
 		{
 			int sum = 0;
 			for (int i = 0; i < values.Length; i++)
@@ -28,7 +54,12 @@ namespace MathUtils
 			return (float)sum / values.Length;
 		}
 
-		public static Single Average(params float[] values)
+		/// <summary>
+		/// Calculate the average of a set of values.
+		/// </summary>
+		/// <param name="values">Values to average</param>
+		/// <returns>Average of given values</returns>
+		public static float Average(params float[] values)
 		{
 			float sum = 0;
 			for (int i = 0; i < values.Length; i++)
@@ -37,7 +68,12 @@ namespace MathUtils
 			return (float)sum / values.Length;
 		}
 
-		public static Double Average(params double[] values)
+		/// <summary>
+		/// Calculate the average of a set of values.
+		/// </summary>
+		/// <param name="values">Values to average</param>
+		/// <returns>Average of given values</returns>
+		public static double Average(params double[] values)
 		{
 			double sum = 0;
 			for (int i = 0; i < values.Length; i++)

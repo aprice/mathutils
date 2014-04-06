@@ -1,14 +1,13 @@
 ﻿using System;
+using MathUtils;
 
 namespace MathUtils
 {
-	/**
-	 * <summary>
-	 * Single point in integer coordinates
-	 * </summary>
-	 */
-	[Serializable()]
-	public struct Vector
+	/// <summary>
+	/// Single point in integer coordinates
+	/// </summary>
+	[Serializable]
+	public struct Vector : IComparable<Vector>
 	{
 		public int X;
 		public int Y;
@@ -42,7 +41,7 @@ namespace MathUtils
 			return ToString().GetHashCode();
 		}
 
-		public int Magnitude
+		public float Magnitude
 		{
 			get
 			{
@@ -88,6 +87,11 @@ namespace MathUtils
 		public static Vector operator /(Vector lhs, int rhs)
 		{
 			return new Vector(lhs.X / rhs, lhs.Y / rhs);
+		}
+
+		public int CompareTo(Vector that)
+		{
+			return this.Magnitude.CeilToInt() - that.Magnitude.CeilToInt();
 		}
 	}
 }

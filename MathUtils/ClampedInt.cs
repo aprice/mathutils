@@ -2,15 +2,13 @@
 
 namespace MathUtils
 {
-	/**
-	 * <summary>
-	 * An integer value clamped between a set of Min and Max values.
-	 * </summary>
-	 * <remarks>
-	 * All math operators overloaded to keep Value between Min and Max, inclusive.
-	 * </remarks>
-	 */
-	[Serializable()]
+	/// <summary>
+	/// An integer value clamped between a set of Min and Max values.
+	/// </summary>
+	/// <remarks>
+	/// All math operators overloaded to keep Value between Min and Max, inclusive.
+	/// </remarks>
+	[Serializable]
 	public struct ClampedInt : IComparable<ClampedInt>
 	{
 		public int Min { get; private set; }
