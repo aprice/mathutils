@@ -51,5 +51,26 @@ namespace MathUtils
 			return val >= min && val <= max;
 		}
 
+		/// <summary>
+		/// Increment a value, wrapping back to zero if it exceeds the given maximum
+		/// </summary>
+		/// <param name="oldValue">Value to increment</param>
+		/// <param name="maxValue">Exclusive upper bound</param>
+		/// <returns>Orignal value + 1, or 0 if original value == maxValue - 1</returns>
+		public static int IncrementWrap(this int oldValue, int maxValue)
+		{
+			return (oldValue + 1) % maxValue;
+		}
+
+		/// <summary>
+		/// Decrement a value, wrapping back to zero if it exceeds the given maximum
+		/// </summary>
+		/// <param name="oldValue">Value to decrement</param>
+		/// <param name="maxValue">Exclusive upper bound</param>
+		/// <returns>Orignal value - 1, or maxValue if original value == 0</returns>
+		public static int DecrementWrap(this int oldValue, int maxValue)
+		{
+			return (oldValue + maxValue - 1) % maxValue;
+		}
 	}
 }

@@ -59,6 +59,20 @@ namespace MathUtils
 		/// </summary>
 		/// <param name="values">Values to average</param>
 		/// <returns>Average of given values</returns>
+		public static double Average(params long[] values)
+		{
+			long sum = 0;
+			for (long i = 0; i < values.Length; i++)
+				sum += values[i];
+
+			return (float)sum / values.Length;
+		}
+
+		/// <summary>
+		/// Calculate the average of a set of values.
+		/// </summary>
+		/// <param name="values">Values to average</param>
+		/// <returns>Average of given values</returns>
 		public static float Average(params float[] values)
 		{
 			float sum = 0;
@@ -80,6 +94,62 @@ namespace MathUtils
 				sum += values[i];
 
 			return sum / values.Length;
+		}
+
+		/// <summary>
+		/// Calculate the root mean square of a set of values.
+		/// </summary>
+		/// <param name="values">Values to calculate RMS</param>
+		/// <returns>RMS of the given values</returns>
+		public static double RootMeanSquare(params int[] values)
+		{
+			double value = 0;
+			foreach (int i in values)
+				value += Math.Pow(i, 2);
+
+			return Math.Sqrt(value / values.Length);
+		}
+
+		/// <summary>
+		/// Calculate the root mean square of a set of values.
+		/// </summary>
+		/// <param name="values">Values to calculate RMS</param>
+		/// <returns>RMS of the given values</returns>
+		public static double RootMeanSquare(params long[] values)
+		{
+			double value = 0;
+			foreach (long i in values)
+				value += Math.Pow(i, 2);
+
+			return Math.Sqrt(value / values.Length);
+		}
+
+		/// <summary>
+		/// Calculate the root mean square of a set of values.
+		/// </summary>
+		/// <param name="values">Values to calculate RMS</param>
+		/// <returns>RMS of the given values</returns>
+		public static double RootMeanSquare(params float[] values)
+		{
+			double value = 0;
+			foreach (float i in values)
+				value += Math.Pow(i, 2);
+
+			return Math.Sqrt(value / values.Length);
+		}
+
+		/// <summary>
+		/// Calculate the root mean square of a set of values.
+		/// </summary>
+		/// <param name="values">Values to calculate RMS</param>
+		/// <returns>RMS of the given values</returns>
+		public static double RootMeanSquare(params double[] values)
+		{
+			double value = 0;
+			foreach (double i in values)
+				value += Math.Pow(i, 2);
+
+			return Math.Sqrt(value / values.Length);
 		}
 	}
 }

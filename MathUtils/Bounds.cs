@@ -118,6 +118,17 @@ namespace MathUtils
 			return pos.X.Between(Left, Right) && pos.Y.Between(Top, Bottom);
 		}
 
+		public bool Contains(Bounds that)
+		{
+			return (Contains(that.Position) && Contains(new Vector(that.Right, that.Bottom)));
+		}
+
+		public bool Overlaps(Bounds that)
+		{
+			return that.Bottom > this.Top && that.Top < this.Bottom
+				&& that.Left < this.Right && that.Right > this.Left;
+		}
+
 		public override string ToString()
 		{
 			return "[" + Position.ToString() + "," + Size.ToString() + "]";
