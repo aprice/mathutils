@@ -26,7 +26,10 @@ namespace MathUtils
 		/// <returns>True if this value is between min and max inclusive, false otherwise</returns>
 		public static bool Between(this int val, int min, int max)
 		{
-			return val >= min && val <= max;
+			if (min > max)
+				return val.Between(max, min);
+			else
+				return val >= min && val <= max;
 		}
 
 		/// <summary>
@@ -48,7 +51,10 @@ namespace MathUtils
 		/// <returns>True if this value is between min and max inclusive, false otherwise</returns>
 		public static bool Between(this long val, long min, long max)
 		{
-			return val >= min && val <= max;
+			if (min > max)
+				return val.Between(max, min);
+			else
+				return val >= min && val <= max;
 		}
 
 		/// <summary>

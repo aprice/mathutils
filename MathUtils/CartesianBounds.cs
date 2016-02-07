@@ -3,32 +3,32 @@
 namespace MathUtils
 {
 	/// <summary>
-	/// Rectangular area in integer coordinates
+	/// Rectangular area in integer Cartesian coordinates
 	/// </summary>
 	[Serializable]
-	public struct Bounds
+	public struct CartesianBounds
 	{
 		/// <summary>
-		/// Top-left corner coordinates
+		/// Bottom-left corner coordinates
 		/// </summary>
 		public Vector Position;
 		public Vector Size;
 
-		public Bounds(Vector position, Vector size)
+		public CartesianBounds(Vector position, Vector size)
 			: this()
 		{
 			Position = position;
 			Size = size;
 		}
 
-		public Bounds(Vector position, int width, int height)
+		public CartesianBounds(Vector position, int width, int height)
 			: this()
 		{
 			Position = position;
 			Size = new Vector(width, height);
 		}
 
-		public Bounds(int x, int y, int width, int height)
+		public CartesianBounds(int x, int y, int width, int height)
 			: this()
 		{
 			Position = new Vector(x, y);
@@ -50,11 +50,11 @@ namespace MathUtils
 		{
 			get
 			{
-				return Position.Y;
+				return Position.Y + Height;
 			}
 			set
 			{
-				Position = new Vector(Position.X, value);
+				Position = new Vector(Position.X, value - Height);
 			}
 		}
 		public int Right
@@ -65,18 +65,18 @@ namespace MathUtils
 			}
 			set
 			{
-				Left = value - Width;
+				Position = new Vector(value - Width, Position.Y);
 			}
 		}
 		public int Bottom
 		{
 			get
 			{
-				return Top + Height;
+				return Position.Y;
 			}
 			set
 			{
-				Top = value - Height;
+				Position = new Vector(Position.X, value);
 			}
 		}
 
@@ -118,14 +118,14 @@ namespace MathUtils
 			return pos.X.Between(Left, Right) && pos.Y.Between(Top, Bottom);
 		}
 
-		public bool Contains(Bounds that)
+		public bool Contains(CartesianBounds that)
 		{
-			return (Contains(that.Position) && Contains(new Vector(that.Right, that.Bottom)));
+			return (Contains(that.Position) && Contains(new Vector(that.Right, that.Top)));
 		}
 
-		public bool Overlaps(Bounds that)
+		public bool Overlaps(CartesianBounds that)
 		{
-			return that.Bottom > this.Top && that.Top < this.Bottom
+			return that.Bottom < this.Top && that.Top > this.Bottom
 				&& that.Left < this.Right && that.Right > this.Left;
 		}
 
@@ -148,12 +148,12 @@ namespace MathUtils
 			return ToString().GetHashCode();
 		}
 
-		public static bool operator ==(Bounds lhs, Bounds rhs)
+		public static bool operator ==(CartesianBounds lhs, CartesianBounds rhs)
 		{
 			return lhs.Equals(rhs);
 		}
 
-		public static bool operator !=(Bounds lhs, Bounds rhs)
+		public static bool operator !=(CartesianBounds lhs, CartesianBounds rhs)
 		{
 			return !lhs.Equals(rhs);
 		}

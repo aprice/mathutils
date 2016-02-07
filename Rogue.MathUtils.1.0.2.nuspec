@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Rogue.MathUtils</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <title>MathUtils</title>
         <authors>Adrian Price</authors>
         <licenseUrl>https://github.com/aprice/mathutils/raw/master/LICENSE</licenseUrl>
@@ -15,6 +15,6 @@
         <tags>math geometry</tags>
     </metadata>
     <files>
-        <file src="lib\MathUtils.dll" target="lib\MathUtils.dll" />
+        <file src="MathUtils\bin\Release\MathUtils.dll" target="lib\MathUtils.dll" />
     </files>
 </package>
